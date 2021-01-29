@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArtisanCommandController;
+use App\Http\Controllers\VariableController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,11 +19,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
+Route::middleware(['auth'])->group(function () {
+
+    Route::get('/dashboard', [VariableController::class, 'dashboard'])->name('dashboard');
+
+    Route::get('editvariables/{id}', [VariableController::class, 'editVariables'])->name('editVariables');
+    Route::put('updatevariables/{id}', [VariableController::class, 'updateVariables'])->name('updateVariables');
+    Route::get('variables', [VariableController::class, 'index'])->name('variableIndex');
+
+    Route::get('/buy', function () {
+        return view('buy');
+    })->name('buy');
+});
 
 
-Route::get('/command', [ArtisanCommandController::class, 'migrate']);
-
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
