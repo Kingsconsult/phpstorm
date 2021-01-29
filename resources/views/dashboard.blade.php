@@ -1,9 +1,22 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('PhpStorm') }}
-        </h2>
-        
+        <div class="d-flex">
+            <div>
+                <h2 class="font-semibold text-xl text-gray-800 leading-tight font-bold">
+                    {{ __('PhpStorm') }}
+                </h2>
+            </div>
+            <div class="d-flex"> 
+                <div class="text-dark mx-2 p"><p>Easy Access</p></div>
+                <div class="text-dark mx-2 p"><p>What's New</p></div>
+                <div class="text-dark mx-2 p"><p>Learning Tools</p></div>
+                <div class="text-dark mx-2 p"><p>Learning Tools</p></div>
+                <div class="text-dark mx-2 p"><p>Learning Tools</p></div>
+                <div class="text-dark mx-2 p"><p>Learning Tools</p></div>
+            
+                <button class="btn btn-primary">Download</button>
+            </div>
+        </div>
     </x-slot>
 
     <div class="py-12">
