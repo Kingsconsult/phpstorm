@@ -28,6 +28,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('editvariables/{id}', [VariableController::class, 'editVariables'])->name('editVariables');
     Route::put('updatevariables/{id}', [VariableController::class, 'updateVariables'])->name('updateVariables');
+    Route::get('createvariables', [VariableController::class, 'createVariables'])->name('createVariables');
+    Route::post('storevariables', [VariableController::class, 'storeVariables'])->name('storeVariables');
     Route::get('variables', [VariableController::class, 'index'])->name('variableIndex');
 
     Route::get('/buy', function () {
